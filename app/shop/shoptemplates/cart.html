@@ -27,7 +27,7 @@
         <img src="{{each.img_url}}"  style="height: 100px;" alt="">
         <p>{{ each.description }}</p>
         <p><b>{{ each.price }}</b></p>
-        <a class="btn btn-danger" href="{{ url_for('shop.removeFromCart', title = each.title ) }}">Delete</a>
+        <a class="btn btn-danger" href="{{ url_for('shop.removeFromCart', id = each.id ) }}">Delete</a>
       </div>
     </div>
   </div>

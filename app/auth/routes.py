@@ -19,22 +19,25 @@ def logMeIn():
 
     form = LoginForm()
     if request.method == "POST":
-        if form.validate():
-            username = form.username.data
-            password = form.password.data
-            # Query user based off of username
-            user = User.query.filter_by(username=username).first()
-            print(user.username, user.password, user.id)
-            if user:
-                # compare passwords
-                if check_password_hash(user.password, password):
-                    flash('You have successfully logged in!', 'success')
-                    login_user(user)
-                    return redirect(url_for('index'))
-                else:
-                    flash('Incorrect username/password combination.', 'danger')
+        try:
+            if form.validate():
+                username = form.username.data
+                password = form.password.data
+                # Query user based off of username
+                user = User.query.filter_by(username=username).first()
+                print(user.username, user.password, user.id)
+                if user:
+                    # compare passwords
+                    if check_password_hash(user.password, password):
+                        flash('You have successfully logged in!', 'success')
+                        login_user(user)
+                        return redirect(url_for('index'))
+                    else:
+                        flash('Incorrect username/password combination.', 'danger')
             else:
                 flash('User with that username does not exist.', 'danger')
+        except:
+            flash('Incorrect username or password.', 'danger')
 
     return render_template('login.html', form=form)
 

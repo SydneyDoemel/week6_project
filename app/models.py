@@ -51,6 +51,11 @@ class User(db.Model, UserMixin):
         self.followed.append(user)
         db.session.commit()
 
+
+
+   
+
+
     def unfollow(self, user):
         self.followed.remove(user)
         db.session.commit()
@@ -76,6 +81,10 @@ class User(db.Model, UserMixin):
         return all
 
 
+class Carts(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    igshop_id =db.Column(db.Integer, db.ForeignKey('igshop.id'), nullable=False)
 
 class IgShop(db.Model):
     id = db.Column(db.Integer, primary_key=True)
