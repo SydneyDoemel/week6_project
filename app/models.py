@@ -22,7 +22,7 @@ user_shop = db.Table('user_shop',
     db.Column('ig_shop_id', db.Integer, db.ForeignKey('ig_shop.id'))
 ) 
 
-# create our Models based off of our ERD
+
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), nullable=False, unique=True)
@@ -90,7 +90,17 @@ class User(db.Model, UserMixin):
 class Carts(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    igshop_id =db.Column(db.Integer, db.ForeignKey('igshop.id'), nullable=False)
+    ig_shop_id =db.Column(db.Integer, db.ForeignKey('ig_shop.id'), nullable=False)
+
+    def __init__(self, user_id, ig_shop_id):
+        self.user_id = user_id
+        self.ig_shop_id = ig_shop_id
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
 
 class IgShop(db.Model):
     id = db.Column(db.Integer, primary_key=True)

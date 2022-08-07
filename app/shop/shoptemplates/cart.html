@@ -14,10 +14,9 @@
 
  
  
-
 <div class="text-center"><h1 >Cart</h1>
-
-{% for each in items %}
+{% if items_lst %}
+{% for each in items_lst %}
 <div class="accordion" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
@@ -31,7 +30,7 @@
           <img src="{{each.img_url}}"  style="height: 100px;" alt="">
           <h6>{{ each.title }}</h6>
           <p><b>${{ each.price }}</b></p>
-          <p>Qty: </p>
+         
           <a class="btn btn-danger" href="{{ url_for('shop.removeFromCart', title = each.title ) }}">Delete</a>
         </div>
       </div>
@@ -42,17 +41,21 @@
 </div>
 {% endfor %}
 
-<div class="card mt-3" style="width: 18rem;">
-  <div class="card-body">
+
+<div class="card mt-3 mb-3 mx-auto" style="width: 18rem;">
+  <div class="card-body text-center">
     <h2 class="card-title">Order Summary</h2>
     <p class="card-text"><b>Total: </b>${{ grand_total }} </p>
     <a href="/shop" class="card-link">Back to Shop</a><br>
     <a href="#" class="btn btn-dark mt-3">Pay Now</a>
   </div>
 </div>
+{% else %}
+<h4 class="text-center mt-5">You have no items in your cart. Go back to <a href="/shop">shop</a>?</h4>
+{% endif %}
 
   
- 
+
  
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>

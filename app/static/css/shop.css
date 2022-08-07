@@ -1,6 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
-
+    min-height: 100vh;
 }
 h1{
     font-family: 'DM Serif Display', serif;
@@ -24,4 +24,11 @@ height: auto;
 .image {
     height: 80%;
 
+}
+.foot-wrap {
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:60px;
 }

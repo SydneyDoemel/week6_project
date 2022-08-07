@@ -1,4 +1,13 @@
+
 h1, h2{
     font-family: 'DM Serif Display', serif;
 
+}
+
+.foot-wrap {
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:60px;
 }
