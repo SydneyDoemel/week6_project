@@ -10,3 +10,7 @@ body {
     right:0;
     height:60px;
 }
+.navbar-brand {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+}
