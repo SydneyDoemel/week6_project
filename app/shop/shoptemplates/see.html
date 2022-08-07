@@ -19,12 +19,12 @@
    <div class="card m-3 pb-0" >
     <div class="image"><img class="card-img-top" src="{{item.img_url}}" alt="Card image cap"></div>
     
-    <div class="card-body">
+    <div class="card-body bg-dark text-light">
       <h5 class="card-title" ><b>{{ item.title }}</b></h5>
       <p class="card-text" >{{ item.description }}</p>
       <p class="card-text" ><b>${{ item.price }}</b></p>
       
-      <a href="{{ url_for('shop.addToCart', title = item.title ) }}" class="btn btn-dark">Add to Cart</a>
+      <a href="{{ url_for('shop.addToCart', title = item.title ) }}" class="btn btn-light">Add to Cart</a>
       
     </div>
   </div>
