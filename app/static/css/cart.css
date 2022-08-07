@@ -1,4 +1,6 @@
-
+body{
+    padding-bottom: 65px;
+}
 h1, h2{
     font-family: 'DM Serif Display', serif;
 

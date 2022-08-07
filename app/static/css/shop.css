@@ -1,6 +1,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     min-height: 100vh;
+    padding-bottom: 65px;
 }
 h1{
     font-family: 'DM Serif Display', serif;
@@ -19,7 +20,7 @@ height: auto;
     margin: 5vw;
 }
 .card{
-    width: 20rem;
+    width: 19rem;
 }
 .image {
     height: 80%;

@@ -16,11 +16,6 @@ followers = db.Table('followers',
     db.Column('followed_id', db.Integer, db.ForeignKey('user.id')),
 )
 
-user_shop = db.Table('user_shop',
-    db.Column('cart_id', db.Integer, primary_key=True),
-    db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
-    db.Column('ig_shop_id', db.Integer, db.ForeignKey('ig_shop.id'))
-) 
 
 
 class User(db.Model, UserMixin):
@@ -36,11 +31,7 @@ class User(db.Model, UserMixin):
         backref = db.backref('followers', lazy='dynamic'),
         lazy = 'dynamic'
     )
-    cart = db.relationship("IgShop",
-        secondary = user_shop,
-        backref='buyers',
-        lazy = 'dynamic'
-    )
+  
 
     def __init__(self, username, email, password):
         self.username = username
@@ -48,12 +39,7 @@ class User(db.Model, UserMixin):
         self.password = generate_password_hash(password)
 
  ######
-    def to_cart(self, item):
-        self.cart.append(item)
-        db.session.commit()
-    def del_cart (self, item):
-        self.cart.remove(item)
-        db.session.commit()
+  
 
 #######
 
