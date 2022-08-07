@@ -64,18 +64,16 @@ def removeFromCart(title):
     return redirect(url_for('shop.cartPage'))
 
 
-# @shop.route('/del/<string:items_lst>')
-# @login_required
-# def removeAll(items_lst):
-#     while len(items_lst) >0:
-#         for each in items_lst:
-#             x = each.title
-#             print(x)
-#             # item = IgShop.query.filter_by(title=x).first()
-#             # x =Carts.query.filter_by(user_id=current_user.id, ig_shop_id = item.id).first()
-#             # x.delete()
-#     flash('Succesfully removed from cart.', 'danger')
-#     return redirect(url_for('shop.cartPage'))
+@shop.route('/del')
+@login_required
+def removeAll():
+    x = Carts.query.filter_by(user_id = current_user.id).all()
+    for each in x:
+        each.delete()
+    flash('Succesfully removed from cart.', 'danger')
+    return redirect(url_for('shop.cartPage'))
 
+
+# DELETE FROM Carts WHERE user_id = current_user.id
 
 
