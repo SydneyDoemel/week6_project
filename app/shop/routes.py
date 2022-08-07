@@ -45,6 +45,14 @@ def cartPage():
     print(items)
     return render_template('cart.html', items_lst = items_lst, grand_total = grand_total)
 
+@shop.route('/cart/<string:title>')
+@login_required
+def seeItem(title):
+    item = IgShop.query.filter_by(title=title).first()
+    see =Carts.query.filter_by(user_id=current_user.id, ig_shop_id = item.id).first()
+    return render_template('see.html', item = item)
+
+
 
 @shop.route('/del/<string:title>')
 @login_required
@@ -55,6 +63,19 @@ def removeFromCart(title):
     flash('Succesfully removed from cart.', 'danger')
     return redirect(url_for('shop.cartPage'))
 
+
+# @shop.route('/del/<string:items_lst>')
+# @login_required
+# def removeAll(items_lst):
+#     while len(items_lst) >0:
+#         for each in items_lst:
+#             x = each.title
+#             print(x)
+#             # item = IgShop.query.filter_by(title=x).first()
+#             # x =Carts.query.filter_by(user_id=current_user.id, ig_shop_id = item.id).first()
+#             # x.delete()
+#     flash('Succesfully removed from cart.', 'danger')
+#     return redirect(url_for('shop.cartPage'))
 
 
 

@@ -10,33 +10,25 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 {% endblock %}
 {% block content %}
-   <div class="text-center"><h1 >Shop</h1>
-    <a href="/cart" class="btn btn-dark text-center">Go to Cart</a>
+   
+    <a href="/shop" class="btn btn-dark text-center">Go Back</a>
     </div>
    
    <div class="cards">
-   {% for each in x %}
+   
    <div class="card m-3 pb-0" >
-    <div class="image"><img class="card-img-top" src="{{each.img_url}}" alt="Card image cap"></div>
+    <div class="image"><img class="card-img-top" src="{{item.img_url}}" alt="Card image cap"></div>
     
     <div class="card-body">
-      <h5 class="card-title" ><b>{{ each.title }}</b></h5>
-      <p class="card-text" ><b>${{ each.price }}</b></p>
-      <a href="{{ url_for('shop.seeItem', title = each.title ) }}" class="btn btn-light">View</a>
-      <a href="{{ url_for('shop.addToCart', title = each.title ) }}" class="btn btn-dark">Add to Cart</a>
+      <h5 class="card-title" ><b>{{ item.title }}</b></h5>
+      <p class="card-text" >{{ item.description }}</p>
+      <p class="card-text" ><b>${{ item.price }}</b></p>
+      
+      <a href="{{ url_for('shop.addToCart', title = item.title ) }}" class="btn btn-dark">Add to Cart</a>
       
     </div>
   </div>
-  {% endfor %}
+  
 </div>
 
-
-
-
-
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
 {% endblock %}
