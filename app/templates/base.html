@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     {{ moment.include_moment() }}
     <title>Title</title>
     {% block head %}
@@ -32,14 +35,15 @@
 
     {% endblock %}
 
-    <footer>
-        <h1 style="background-color: tomato;">THIS IS THE FOOTER</h1>
+    <div class="text-center p-3 bg-light">
+        <a class="text-dark" href="#" style="text-decoration: none;">Finstagram</a>
+      </div>
     </footer>
 
 
-
-
+{% block js %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+{% endblock %}
 </body>
 </html>

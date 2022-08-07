@@ -1,0 +1,27 @@
+body {
+    font-family: 'Roboto', sans-serif;
+
+}
+h1{
+    font-family: 'DM Serif Display', serif;
+
+}
+img{
+    width: 100%;
+max-width: 400px;
+height: auto;
+    object-fit: fill;
+}
+.cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 5vw;
+}
+.card{
+    width: 20rem;
+}
+.image {
+    height: 80%;
+
+}

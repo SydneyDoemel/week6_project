@@ -47,13 +47,19 @@ class User(db.Model, UserMixin):
         self.email = email
         self.password = generate_password_hash(password)
 
+ ######
+    def to_cart(self, item):
+        self.cart.append(item)
+        db.session.commit()
+    def del_cart (self, item):
+        self.cart.remove(item)
+        db.session.commit()
+
+#######
+
     def follow(self, user):
         self.followed.append(user)
         db.session.commit()
-
-
-
-   
 
 
     def unfollow(self, user):
@@ -100,7 +106,7 @@ class IgShop(db.Model):
     def save(self):
         db.session.add(self)
         db.session.commit()
-
+   
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(150), nullable=False)
