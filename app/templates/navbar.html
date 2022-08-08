@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
       <h5 class="navbar-brand text-dark " href="#"><h5 class="p-3 pt-2">Finstagram</h5></h5>
       <!-- <img src="{{ url_for('static', filename='bike_shop.webp') }}" alt="Logo"> -->
@@ -27,7 +27,7 @@
             </ul>
 
           {% if current_user.is_authenticated %}
-            <li class="nav-item text-dark"><a class="nav-link" href="/posts/create">Create Post</a></li>
+            <li class="nav-item text-dark"><a class="nav-link text-dark" href="/posts/create">Create Post</a></li>
           {% else %}
 
           {% endif %}

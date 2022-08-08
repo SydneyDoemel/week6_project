@@ -2,36 +2,37 @@ body {
     font-family: 'Roboto', sans-serif;
     min-height: 100vh;
     padding-bottom: 65px;
- 
+    
 }
 h1{
     font-family: 'DM Serif Display', serif;
 
 }
+.go-back {
+    margin-left: 20px;
+}
 img{
     width: 100%;
-max-width: 400px;
+max-width: 350px;
 height: auto;
     object-fit: fill;
+    margin-left: 20vw;
 }
 .cards {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin: 5vw;
+    justify-content: center;
     
+    
+    ;
 }
 .card{
-    width: 19rem;
+    width: 60rem;
     border-style: none;
 
 }
 .image {
     height: 80%;
 
-}
-.to-cart{
-    margin-bottom: 2vh;
 }
 .foot-wrap {
     position:fixed;

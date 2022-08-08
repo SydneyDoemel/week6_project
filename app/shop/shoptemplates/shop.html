@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/shop.css') }}">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/shop.css') }}">
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 {% endblock %}
 {% block content %}
    <div class="text-center"><h1 >Shop</h1>
-    <a href="/cart" class="btn btn-dark text-center">Go to Cart</a>
+    <a href="/cart" class="btn btn-dark text-center to-cart">Go to Cart</a>
     </div>
    
    <div class="cards">
